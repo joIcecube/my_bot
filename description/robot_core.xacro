@@ -9,6 +9,10 @@
         <color rgba="1 0.3 1 1"/>
     </material>
 
+    <material name="purple">
+        <color rgba="0.67 0.38 0.67 1"/>
+    </material>
+
     <material name="blue">
         <color rgba="0.2 0.2 1 1"/>
     </material>
@@ -16,23 +20,44 @@
     <material name="black">
         <color rgba="0 0 0 1"/>
     </material>
-
+    <!-- BASE -->
     <link name="base_link">
     </link>
-
+    <!-- Chassis related to the Base -->
     <joint name="chassis_joint" type ="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
         <origin xyz="-0.1 0 0"/> <!-- décalage xyz entre le référentiel chassis et le référentiel centre des roues -->
     </joint>
-
+    <!-- Chassis size and shape-->
     <link name="chassis">
         <visual>
-            <origin xyz="0.15 0 0.075" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
+            <origin xyz="0.15 0 0.035" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
             <geometry>
                 <box size="0.3 0.3 0.05"/> <!-- taille du chassis-->
             </geometry>
             <material name="black"/> <!-- couleur du chassis-->
         </visual>
     </link>
+    <!-- LEFT wheels link-->
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <origin xyz=""/>
+    </joint>
+    <link name="left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" lenght="0.04"/>
+            </geometry>
+            <material name="purple"/>
+        </visual>
+    </link>
+
+
+
+
+
+
+
 </robot>
