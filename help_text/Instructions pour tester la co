@@ -1,0 +1,53 @@
+
+
+
+
+
+ros2 run demo_nodes_cpp talker
+ros2 run demo_nodes_py listener 
+
+
+--------------------------------------
+
+source /opt/ros/humble/setup.bash
+
+------------------------------------
+
+
+
+export ROS_DOMAIN_ID=
+echo $ROS_DOMAIN_ID
+
+
+
+
+---------------------------------------
+
+
+
+nano ~/.bashrc
+source ~/.bashrc
+
+
+
+
+
+-----------------------------------------
+
+
+ros2 topic list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
