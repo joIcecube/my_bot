@@ -29,7 +29,7 @@ ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity [bot-name]
 --------------------------script-------------------
 
 colcon build --symlink-install
-~/dev_ws$ ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/cardbox_world.world
+ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/jj.world
 
 
 -------------------------------------------
