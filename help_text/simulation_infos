@@ -13,7 +13,7 @@ rviz2				#lance le logiciel de simulation
 rviz2 -d src/my_bot/config/view_bot_one.rviz
 
 
-
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
 
 
 -------------------------GAZEBO--------------------------------
@@ -22,7 +22,7 @@ rviz2 -d src/my_bot/config/view_bot_one.rviz
 
 ros2 launch gazebo_ros gazebo.launch.py
 
-
+ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity [bot-name]
 
 
 
