@@ -26,9 +26,26 @@
     <material name="black">
         <color rgba="0 0 0 1"/>
     </material>
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+    
+    
+    
+    
+    
+    
+    
     <!-- BASE -->
     <link name="base_link">
     </link>
+    
+    
+    
+    
+    
+    
+    
     <!-- Chassis related to the Base -->
     <joint name="chassis_joint" type ="fixed">
         <parent link="base_link"/>
@@ -59,7 +76,45 @@
     <gazebo reference="chassis">
         <material>Gazebo/Black</material>
     </gazebo>
+    
+    
+    
+    
+    
+    <!-- Body -->
+    <joint name="body_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="body"/>
+        <origin xyz="0.105 0 0" rpy="0 0 0"/>
+    </joint>
 
+    <link name="body">
+        <visual>
+            <origin xyz="0 0 0.08" rpy="0 0 0"/> 
+            <geometry>
+                <box size="0.1 0.1 0.12"/> <!-- taille du corp-->
+            </geometry>
+            <material name="green"/> <!-- couleur du corp-->
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.08" rpy="0 0 0"/> 
+            <geometry>
+                <box size="0.1 0.1 0.12"/> <!-- taille du corp-->
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.2" x="0.28" y="0.09" z="0.02">
+            <origin xyz="0.15 0 0.035" rpy="0 0 0"/>
+        </xacro:inertial_box>
+
+    </link>
+
+    <gazebo reference="body">
+        <material>Gazebo/Green</material>
+    </gazebo>
+    
+    
+   
+    
     <!-- LEFT wheels link-->
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
