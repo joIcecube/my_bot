@@ -1,0 +1,19 @@
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_cpp talker
+
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_py listener
+
+colcon build --symlink-install
+
+ros2 launch my_bot rsp.launch.py
+
+vcgencmd measure_temp
+
+vcgencmd get_throttled
+
+vcgencmd measure_volts
+
+ls -l /dev/ttyUSB*
+
+ls /dev/serial/USB/by-id	
