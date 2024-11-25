@@ -60,6 +60,7 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 
 		----Robot state publisher-------
 ros2 launch my_bot rsp.launch.py
+ros2 launch my_bot launch_robot.launch.py
 ros2 launch my_bot rsp.launch.py use_sim_time:=true
 ros2 run joint_state_publisher_gui joint_state_publisher_gui
 
