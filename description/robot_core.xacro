@@ -50,25 +50,25 @@
     <joint name="chassis_joint" type ="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="-0.035 0 0"/> <!-- décalage xyz entre le référentiel chassis et le référentiel centre des roues -->
+        <origin xyz="0.045 0 -0.012"/> <!-- décalage xyz entre le référentiel chassis et le référentiel centre des roues -->
     </joint>
     <!-- Chassis size and shape-->
     <link name="chassis">
         <visual>
-            <origin xyz="0.14 0 0.01" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
+            <origin xyz="-0.045 0 0.01" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
             <geometry>
-                <box size="0.28 0.15 0.02"/> <!-- taille du chassis-->
+                <box size="0.09 0.35 0.005"/> <!-- taille du chassis-->
             </geometry>
             <material name="black"/> <!-- couleur du chassis-->
         </visual>
         <collision>
-            <origin xyz="0.14 0 0.01" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
+            <origin xyz="-0.045 0 0.01" rpy="0 0 0"/> <!-- Translation du chassis pour que les roues soient fixé en dessous -->
             <geometry>
-                <box size="0.28 0.15 0.02"/> <!-- taille du chassis-->
+                <box size="0.09 0.35 0.005"/> <!-- taille du chassis-->
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.28" y="0.09" z="0.02">
-            <origin xyz="0.15 0 0.035" rpy="0 0 0"/>
+        <xacro:inertial_box mass="0.5" x="0.09" y="0.28" z="0.02">
+            <origin xyz="0.045 0 0.01" rpy="0 0 0"/>
         </xacro:inertial_box>
 
     </link>
@@ -83,9 +83,9 @@
     
     <!-- Body -->
     <joint name="body_joint" type="fixed">
-        <parent link="chassis"/>
+        <parent link="base_link"/>
         <child link="body"/>
-        <origin xyz="0.105 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0.015 -0.012" rpy="0 0 0"/>
     </joint>
 
     <link name="body">
@@ -97,13 +97,13 @@
             <material name="green"/> <!-- couleur du corp-->
         </visual>
         <collision>
-            <origin xyz="0 0 0.08" rpy="0 0 0"/> 
+            <origin xyz="0 0 -0.08" rpy="0 0 0"/> 
             <geometry>
-                <box size="0.1 0.1 0.12"/> <!-- taille du corp-->
+                <box size="0.09 0.1 0.12"/> <!-- taille du corp-->
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.2" x="0.28" y="0.09" z="0.02">
-            <origin xyz="0.15 0 0.035" rpy="0 0 0"/>
+        <xacro:inertial_box mass="0.2" x="0.09" y="0.09" z="0.12">
+            <origin xyz="0 0 -0.08" rpy="0 0 0"/>
         </xacro:inertial_box>
 
     </link>
@@ -119,7 +119,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin xyz="0 0.105 -0.02" rpy="-${pi/2} 0 0"/>
+        <origin xyz="0 0.205 0.02" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
     <link name="left_wheel">
@@ -147,7 +147,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
-        <origin xyz="0 -0.105 -0.02" rpy="${pi/2} 0 0"/>
+        <origin xyz="0 -0.205 0.02" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 -1"/>
     </joint>
     <link name="right_wheel">
@@ -174,7 +174,7 @@
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel"/>
-        <origin xyz="0.22 0 -0.05"/>
+        <origin xyz="-0.22 0 -0.012"/>
     </joint>
     <link name="caster_wheel">
         <visual>
@@ -188,7 +188,7 @@
                 <sphere radius="0.03"/>
             </geometry>
         </collision>
-        <xacro:inertial_sphere mass="0.1" radius="0.03">
+        <xacro:inertial_sphere mass="0.4" radius="0.03">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
